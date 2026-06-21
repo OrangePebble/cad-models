@@ -43,24 +43,24 @@
 
       # fetch git pip dependencies so they aren't downloaded everytime on pip install
       # it still requires internet but its at least faster
-      bd_warehouse = pkgs.fetchgit {
-        url = "https://github.com/gumyr/bd_warehouse.git";
-        rev = "97112a02d9538d57740a005a7802dd149d797568";
-        sha256 = "sha256-gtkR610dCjOcWBnaohSJ7SD1Ki0k3hy4OIGHvsg/Zt4=";
-        deepClone = true;
-      };
-      cq_gears = pkgs.fetchgit {
-        url = "https://github.com/meadiode/cq_gears.git";
-        rev = "e73874cf17a25447a99b1e7c22a4d5af38560e9c";
-        sha256 = "sha256-DrIqMNxXx8Pokm3qjEZX43wSBJELM9Cu2iZIAlYf5EA=";
-        deepClone = true;
-      };
+      # bd_warehouse = pkgs.fetchgit {
+      #   url = "https://github.com/gumyr/bd_warehouse.git";
+      #   rev = "97112a02d9538d57740a005a7802dd149d797568";
+      #   sha256 = "sha256-gtkR610dCjOcWBnaohSJ7SD1Ki0k3hy4OIGHvsg/Zt4=";
+      #   deepClone = true;
+      # };
+      # cq_gears = pkgs.fetchgit {
+      #   url = "https://github.com/meadiode/cq_gears.git";
+      #   rev = "e73874cf17a25447a99b1e7c22a4d5af38560e9c";
+      #   sha256 = "sha256-DrIqMNxXx8Pokm3qjEZX43wSBJELM9Cu2iZIAlYf5EA=";
+      #   deepClone = true;
+      # };
       pythonRequirements = pkgs.writeText "requirements.txt" ''
         build123d == 0.10.0 # includes cadquery
         ocp_vscode == 3.0.0 # https://github.com/bernhard-42/vscode-ocp-cad-viewer
         # git+https://github.com/Ruudjhuu/gridfinity_build123d.git@8d3118902e98a5cb3f0b511a935d330c8465c7a0
-        git+file://${bd_warehouse}
-        git+file://${cq_gears}
+        # git+file://{bd_warehouse}
+        # git+file://{cq_gears}
       '';
     in {
       default = pkgs.mkShell {
